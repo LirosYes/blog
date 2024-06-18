@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/post', function () {
     return view('welcome');
 });
 
-Route::get('/{hello}', function ($posts) {
+Route::get('/post/{posts}', function ($posts) {
+    return "sub {$posts}";
+});
+
+Route::get('/post/{posts}', function ($posts) {
     return "sub {$posts}";
 });
