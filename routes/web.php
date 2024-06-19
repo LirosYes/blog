@@ -1,15 +1,11 @@
-<?php
+<?php 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
-Route::get('/post', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class);
 
-Route::get('/post/{posts}', function ($posts) {
-    return "sub {$posts}";
-});
-
-Route::get('/post/{posts}/{category}', function ($posts, $category) {
-    return "sub {$posts} from {$category}";
-});
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/create',[PostController::class, 'create']);
+Route::get('/posts/{posts}/{category}',[PostController::class, 'show']);
